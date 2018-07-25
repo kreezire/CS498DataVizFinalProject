@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Regions of the World</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale = 1.0, user-scalable = no">
+    <meta name="description" content="">
+    <meta name="author" content="Xin Qu">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+    <link rel="stylesheet" href="./css/reveal.css">
+    <link rel="stylesheet" href="./css/theme/beige.css">
+    <link rel = "stylesheet" href="./css/index.css">
+    <link rel="stylesheet" href="./css/bubbles_area.css">
+    <link rel="stylesheet" href="./css/bubbles.css">
+    <link rel="stylesheet" href="./css/world_le.css">
+    <link rel="stylesheet" href="./css/scatter1.css">
+    <link rel="stylesheet" href="./css/bar.css">
+
+    <!--Load d3-->
+    <script type="text/javascript" src="https://d3js.org/d3.v4.min.js"></script>
+    <script src="https://d3js.org/d3-selection-multi.v1.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.16/d3.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3-tip/0.6.7/d3-tip.js">	 </script>
+    <!-- Theme used for syntax highlighting of code -->
+    <!--
+	<link rel="stylesheet" href="lib/css/zenburn.css">
+    <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
+    -->
+    <!-- Printing and PDF exports -->
+    <script>
+        var link = document.createElement( 'link' );
+        link.rel = 'stylesheet';
+        link.type = 'text/css';
+        link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+        document.getElementsByTagName( 'head' )[0].appendChild( link );
+    </script>
+
+    <style></style>
+</head>
+<body>
+    <!--
+    <div id="header">
+        <a href="#" class="navigate-left">Life Expectancy</a>
+    </div>
+    -->
+    <div class="reveal">
+        <div class="slides">
+            <section id="slide_1">
+                <!--content of slide 1-->
+                <div id="slide1">
+                    <h2>Regions of the world.</h2>
+                    <p>CS 498 Data Visualization- Final Project</p>
+                    <p><small>Data source: <u><strong><a href="https://www.kaggle.com/fernandol/countries-of-the-world">Countries of the world data</a></strong></u> </small></p>
+                    <p><small>July 2018</small></p>
+                    <p><small>Vipul Aggarwal (vipula2@illinois.edu)</small></p>
+                    <p align="justify"><small><em>Please <strong>MAXIMIZE</strong> the browser to optimize the view of slides, charts and tooltips. Text alignment may not work with IE explorer. Use Chrome for recommendation.</em></small></p>
+                </div>
+                <!-- end of content -->
+            </section>
+            <section id = "slide_2">
+                <!--content of slide 2-->
+                <h9>About this Visualization</h9>
+                <small>
+                    <p align = "justify">This visualization uses the Interactive Slideshow to tell the story of 
+                        Regions of the World. It tells some stats about primary geographical regions and then dives into some details for regions in Europe.
+					<br/>
+                    Visualizations are built with various annotations, parameters and some triggers. 
+        
+                    </p>
+                    
+                    
+                </small>
+               </section>
+            <section>
+			<h9>Elements</h9>
+                <small>
+                    <ol>
+                        <li class="fragment" ><strong>Scenes</strong></li>
+                        <p class="fragment"  align="justify">There are multiple slides, including a few charts in this presentation. 
+                           
+                        </p>
+						<li class="fragment" ><strong>Navigation</strong></li>
+                        <p class="fragment" align="justify"> 
+                            Each slide can be navigated through guiding arrows in the right bottom corner.
+                        </p>
+                        <li class="fragment" ><strong>Parameters</strong></li>
+                        <p class="fragment"  align="justify">
+                            Main parameter of each chart is "region". Each chart is separate and deals with a few other parameters.
+                        </p>
+                        <li class="fragment" ><strong>Triggers</strong></li>
+                        <p class="fragment"  align="justify">Some charts have triggers. Like: Zoom in scatter plot.
+                        </p>
+                   
+               
+                    <li class="fragment" ><strong>Annotations</strong></li> 
+					<p  class="fragment"  align="justify">Charts include legends, tool tips and labels  for hinting. 
+                    </p>
+					 </ol>
+                        <!--
+                        More details of each scence go here:   
+                        <u><em><strong><a href="#slide_4">ABOUT THE DATASET</a></strong></em></u> (slide 4). </li>
+                        -->
+                     
+                </small>
+                <!-- end of content -->
+            </section>
+            
+            <section>
+                <section>
+				<small><strong>Net  Migration</strong></small>
+				<br/><br/><br/><br/>
+				<small>Move down.</small>
+               </section>
+                <section>
+				<small><strong>Net Migration vs GDP (scroll down)</strong></small>
+                    <!--content of vertical slide 3-->
+					
+                    <small align = "justify" style="font-size: 70%">
+					This chart shows how Net Migration is varies with GDP. Each mark on chart represents a country. Each dot is color codded to represent its region.
+					</small>
+					<small align = "justify" style="font-size: 70%">
+					<br/><br/> You can select region from legend to see details of a specific region.
+					</small>
+					<small align = "justify" style="font-size: 70%">
+					<br/><br/>You can zoom along x and y axis. Use "Reset Zoom" button to restore the view.
+                    </small>
+					<small align = "justify" style="font-size: 70%">
+					<br/> <br/>It can be noted from the chart that for countries with lower GDP net migration is mostly negative- suggesting  that people out of these countries. 
+					</small>
+					<small align = "justify" style="font-size: 70%">
+					<br/> <br/>And for countries with higher GDP net migration is mostly positive- suggesting  that more people into these countries.
+					</small>
+					</p>
+					
+                    <!-- end of content -->
+                </section>
+                <section>
+                    <!--content of vertical slide 6-->
+                    <small>Net Migration vs GDP</small>
+                    <!--div id='stackedbar'></div-->
+					<div id='scatter1'></div>
+					<button class="reset" >Reset Zoom</button>
+    <!--button class="changexlos">X-Axis:GDP</button-->
+                   
+
+                    <!-- end of content -->
+                </section>
+				<section>
+				<small><strong>Net Migration vs Literacy (scroll down)</strong></small>
+                    <!--content of vertical slide 3-->
+					
+                    <small align = "justify" style="font-size: 70%">
+					This chart shows how Net Migration is varies with Literacy rate. Each mark on chart represents a country. Each dot is color codded to represent its region.
+					</small>
+					<small align = "justify" style="font-size: 70%">
+					<br/><br/> You can select region from legend to see details of a specific region.
+					</small>
+					<small align = "justify" style="font-size: 70%">
+					<br/><br/>You can zoom along x and y axis. Use "Reset Zoom" button to restore the view.
+                    </small>
+					<small align = "justify" style="font-size: 70%">
+					<br/> <br/>It can be noted from the chart that for countries with lower literacy rate show lower (absolute) net migration.
+					</small>
+					<small align = "justify" style="font-size: 70%">
+					<br/> <br/>It can be noted from the chart that for countries with higher literacy rate show more (absolute) net migration. Suggesting educated population migrated more.
+					</small>
+					</p>
+					
+                    <!-- end of content -->
+                </section>
+				<section>
+                    <!--content of vertical slide 6-->
+                   <small>Net Migration vs Literacy</small>
+                    <!--div id='stackedbar'></div-->
+					<div id='scatter2'></div>
+					<button class="reset2" >Reset Zoom</button>
+    
+    <!--button class="changexlos">X-Axis:GDP</button-->
+                   
+                    
+                    <!-- end of content -->
+                </section>
+				
+				
+				
+				
+            </section>
+           
+        <section>
+		<section>
+		<strong>Economic Sector of Europe.</strong>
+		<br/><br/>
+		<small> In this section, we will narrow down to Europe and see if different economic sectors vary in different regions of Europe.
+		</small>
+		<br/><br/>
+		<small> Each bar has been colour coded to represent service sector, industry or agriculture sector.
+		
+		</small>
+		<br/><br/>
+		<small> You can use tool tip to see exact ration of people involved in a particular sector.
+		</small>
+		<br/><br/>
+		<small>Go down.</small>
+		</section>
+		<section>
+		<small>Western Europe</small>
+		<br/>
+		<iframe src="index6.html" name="targetframe" allowTransparency="true" scrollbar="yes" frameborder="0" height="500" width="1100" > 
+            </iframe>
+		</section>
+		<section>
+		<small>Eastern Europe</small>
+		<br/>
+		<iframe src="index7.html" name="targetframe" allowTransparency="true" scrollbar="yes" frameborder="0" height="500" width="1100" > 
+            </iframe>
+		</section>
+		
+		</section>
+            <section>
+                <!--content of vertical slide 4-->
+                <h3>The end</h3>
+                <small align = "left">
+                    Thanks to 
+                    <li align = "justify" style="font-size:90%">Hakimel for reveal.js <a href="https://revealjs.com/#/"></a></li>
+                    <li align = "justify" style="font-size:90%">Data Bank for data source</li>
+                </small>
+            </section>
+        </div>
+    </div>
+    <script src="./js/reveal.js"></script>
+    <script>Reveal.initialize();</script>
+    <script src="./js/tooltip.js"></script>
+
+
+    <script src = "./js/bar_test.js"></script>
+    <script src="./js/bubbles_area.js"></script>
+    <script src="./js/world_le.js"></script>
+   
+    <script src="./js/bubbles.js"></script>
+     <script src="./js/scatter1.js"></script>
+     <script src="./js/scatter2.js"></script>
+     <script src="./js/scatter3.js"></script>
+	 
+     <!--script src="./js/bar.js"></script-->
+    
+    
+    <!--
+    <script src="./js/japan.js"></script>
+    -->
+    
+</body>
+</html>

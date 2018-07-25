@@ -1,0 +1,287 @@
+var margin1 = {
+        top: 20,
+        right: 210,
+        bottom: 50,
+        left: 70
+    },
+    outerWidth = 1050,
+    outerHeight = 500,
+    width = outerWidth - margin1.left - margin1.right,
+    height = outerHeight - margin1.top - margin1.bottom;
+
+var x1 = d3.scale.linear()
+    .range([0, width]).nice();
+
+var y1 = d3.scale.linear()
+    .range([height, 0]).nice();
+
+var xAxis1 = d3.svg1.axis()
+    .scale(x)
+    .orient("bottom")
+    .tickSize(-height);
+
+var yAxis1 = d3.svg1.axis()
+    .scale(y)
+    .orient("left")
+    .tickSize(-width);
+
+var xCat = "GDP",
+    yCat = "Net_migration",
+    colorCat = "Region";
+
+var labels1 = {
+    "Region": "Region",
+    "Net_migration": "Net Migration",
+    "GDP": "GDP"
+}
+
+d3.csv("countriesoftheworld.csv", function(data) {
+    data.forEach(function(d) {
+        d.GDP = +d.GDP;
+        d.Net_migration = +d.Net_migration;
+        d.Region = d.Region;
+    });
+
+    var xMax1 = d3.max(data, function(d) {
+            return d[xCat];
+        }) * 1.05,
+        xMin1 = d3.min(data, function(d) {
+            return d[xCat];
+        }),
+        xMin1 = xMin1 > 0 ? 0 : xMin1,
+        yMax1 = d3.max(data, function(d) {
+            return d[yCat];
+        }) * 1.05,
+        yMin1 = d3.min(data, function(d) {
+            return d[yCat];
+        }),
+        yMin1 = yMin1 > 0 ? 0 : yMin1;
+    x1.domain([xMin1, xMax1]);
+    y1.domain([yMin1, yMax1]);
+    var color = d3.scale.category10();
+
+    var tip = d3.tip()
+        .attr("class", "d3-tip")
+        .offset([-10, 0])
+        .html(function(d) {
+            return labels[xCat] + ": " + d[xCat] + "<br>" + labels[yCat] + ": " + d[yCat] + "<br>" + labels[colorCat] + ": " + d[colorCat];
+        });
+
+    var zoomBeh = d3.behavior.zoom()
+        .x1(x1)
+        .y1(y1)
+        .scaleExtent([0, 1000])
+        .on("zoom", zoom);
+
+    var svg1 = d3.select("#scatter1")
+        .append("svg")
+        .attr("width", outerWidth)
+        .attr("height", outerHeight)
+        .append("g")
+        .attr("transform", "translate(" + margin1.left + "," + margin1.top + ")")
+        .call(zoomBeh);
+    svg1.call(tip);
+    svg1.append("rect")
+        .attr("width", width)
+        .attr("height", height);
+    svg1.append("g")
+        .classed("x axis", true)
+        .attr("transform", "translate(0," + height + ")")
+        .call(xAxis1)
+        .append("text")
+        .classed("label", true)
+        .attr("x", width)
+        .attr("y", margin1.bottom - 10)
+        .style("text-anchor", "end")
+        .text("GDP");
+    svg1.append("g")
+        .classed("y axis", true)
+        .call(yAxis1)
+        .append("text")
+        .classed("label", true)
+        .attr("transform", "rotate(-90)")
+        .attr("y", -margin1.left)
+        .attr("dy", "1.5em")
+        .style("text-anchor", "end")
+        .text("Net Migration");
+
+    var objects = svg1.append("svg")
+        .classed("objects", true)
+        .attr("width", width)
+        .attr("height", height);
+    objects.append("svg:line")
+        .classed("axisLine hAxisLine", true)
+        .attr("x1", 0)
+        .attr("y1", 0)
+        .attr("x2", width)
+        .attr("y2", 0)
+        .attr("transform", "translate(0," + height + ")");
+    objects.append("svg:line")
+        .classed("axisLine vAxisLine", true)
+        .attr("x1", 0)
+        .attr("y1", 0)
+        .attr("x2", 0)
+        .attr("y2", height);
+    objects.selectAll(".dot")
+        .data(data)
+        .enter().append("circle")
+        .classed("dot", true)
+        .attr({
+            r: function(d){return 5;},
+            cx: function(d) {
+                return x(d[xCat]);
+            },
+            cy: function(d) {
+                return y(d[yCat]);
+            }
+        })
+    .style("fill", function(d) {
+        return color(d[colorCat]);
+    })
+        .on("mouseover", tip.show)
+        .on("mouseout", tip.hide);
+
+    var legend = svg1.selectAll(".legend")
+        .data(color.domain())
+        .enter().append("g")
+        .classed("legend", true)
+        .attr("transform", function(d, i) {
+            return "translate(0," + i * 20 + ")";
+        })
+		.attr("overflow", "auto");
+    legend.append("rect")
+        .attr("x", width + 10)
+        .attr("width", 12)
+        .attr("height", 12)
+        .style("fill", color);
+    legend.on("click", function(type) {
+        // dim all of the icons in legend
+        d3.selectAll(".legend")
+            .style("opacity", 0.1);
+        // make the one selected be un-dimmed
+        d3.select(this)
+            .style("opacity", 1);
+        // select all dots and apply 0 opacity (hide)
+        d3.selectAll(".dot")
+        // .transition()
+        // .duration(500)
+        .style("opacity", 0.0)
+        // filter out the ones we want to show and apply properties
+        .filter(function(d) {
+            return d["Region"] == type;
+        })
+            .style("opacity", 1) // need this line to unhide dots
+        .style("stroke", "black")
+        // apply stroke rule
+        .style("fill", function(d) {
+            
+        });
+    });
+    legend.append("text")
+        .attr("x", width + 26)
+        .attr("dy", ".65em")
+		.style("font-size","12px")
+        .text(function(d) {
+            return d;
+        });
+    d3.select("button.reset").on("click", change)
+    d3.select("button.changexlos").on("click", updateX)
+
+    function change() {
+        xMax1 = d3.max(data, function(d) {
+            return d[xCat];
+        });
+        xMin1 = d3.min(data, function(d) {
+            return d[xCat];
+        });
+        zoomBeh.x(x.domain([xMin1, xMax1])).y(y.domain([yMin1, yMax1]));
+
+        var svg = d3.select("#scatter1").transition();
+        svg1.select(".x.axis").duration(750).call(xAxis1).select(".label").text(labels[xCat]);
+        objects.selectAll(".dot").transition().duration(1000)
+            .attr({
+                r: function(d){return 5;},
+                cx: function(d) {
+                    return x(d[xCat]);
+                },
+                cy: function(d) {
+                    return y(d[yCat]);
+                }
+            })
+    }
+
+    function zoom() {
+        svg1.select(".x.axis").call(xAxis1);
+        svg1.select(".y.axis").call(yAxis1);
+        svg1.selectAll(".dot")
+            .attr({
+				r: function(d){return 5;},
+                cx: function(d) {
+                    return x(d[xCat]);
+                },
+                cy: function(d) {
+                    return y(d[yCat]);
+                }
+            })
+            // .attr("transform", transform);
+    }
+
+    function transform(d) {
+        return "translate(" + x(d[xCat]) + "," + y(d[yCat]) + ")";
+    }
+
+    function updateX() {
+        xCat = "GDP",
+        yCat = "Net_migration",
+        colorCat = "Region";
+        xMax1 = d3.max(data, function(d) {
+            return d[xCat];
+        }) * 1.05,
+        xMin1 = d3.min(data, function(d) {
+            return d[xCat];
+        }),
+        xMin1 = xMin1 > 0 ? 0 : xMin1,
+        yMax1 = d3.max(data, function(d) {
+            return d[yCat];
+        }) * 1.05,
+        yMin1 = d3.min(data, function(d) {
+            return d[yCat];
+        }),
+        yMin1 = yMin1 > 0 ? 0 : yMin1;
+        x.domain([xMin1, xMax1]);
+        y.domain([yMin1, yMax1]);
+
+        var zoomBeh = d3.behavior.zoom()
+            .x(x)
+            .y(y)
+            .scaleExtent([0, 1000])
+            .on("zoom", zoom);
+
+        var svg = d3.select("#scatter1").select("svg").transition();
+        svg1.select(".y.axis")
+            .duration(1000)
+            .call(yAxis1);
+        svg1.select('.x.axis')
+            .duration(1000)
+            .call(xAxis1);
+        svg1.select('.label')
+            .duration(1000)
+        .attr("x", width)
+            .attr("y", margin1.bottom - 10)
+            .style("text-anchor", "end")
+            .text("Length of Stay");
+
+        d3.select("#scatter1").selectAll("circle.dot")
+            .transition()
+            .duration(1000)
+            .attr({
+                r: function(d){return 5;},
+                cx: function(d) {
+                    return x(d[xCat]);
+                },
+                cy: function(d) {
+                    return y(d[yCat]);
+                }
+            })
+    }
+});

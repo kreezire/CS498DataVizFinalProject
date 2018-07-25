@@ -1,0 +1,196 @@
+country,average,group
+"Hong Kong SAR, China",82.62,t1
+Japan,82.55,t1
+"Macao SAR, China",82.2,t1
+Switzerland,81.75,t1
+Iceland,81.63,t1
+Italy,81.45,t1
+Spain,81.21,t1
+Liechtenstein,81.2,t1
+Australia,81.19,t1
+Sweden,81.06,t1
+France,80.99,t1
+Israel,80.89,t1
+Canada,80.78,t1
+Singapore,80.66,t1
+Norway,80.6,t1
+New Zealand,80.27,t1
+Faroe Islands,80.19,t1
+Malta,80.11,t1
+Luxembourg,80.08,t1
+Netherlands,80.06,t1
+Austria,80.03,t1
+Greece,79.84,t1
+United Kingdom,79.69,t1
+Belgium,79.64,t1
+Finland,79.64,t1
+Ireland,79.61,t1
+Channel Islands,79.56,t1
+Germany,79.54,t1
+Bermuda,79.51,t1
+"Korea, Rep.",79.29,t1
+Cyprus,79.16,t1
+Portugal,78.88,t1
+Denmark,78.67,t1
+Slovenia,78.58,t1
+Costa Rica,78.55,t1
+Cuba,78.43,t1
+Puerto Rico,78.41,t1
+Chile,78.19,t1
+Virgin Islands (U.S.),78.04,t1
+United States,77.95,t1
+Lebanon,77.53,t1
+Guam,77.47,t1
+Qatar,77.14,t1
+Czech Republic,76.87,t1
+Panama,76.49,t1
+Brunei Darussalam,76.42,t1
+New Caledonia,76.33,t1
+Uruguay,76.22,t1
+Albania,76.15,t1
+Croatia,75.94,t1
+United Arab Emirates,75.89,t1
+Mexico,75.79,t1
+Poland,75.74,t1
+Bahrain,75.74,t1
+Bosnia and Herzegovina,75.66,t1
+Argentina,75.25,t1
+Antigua and Barbuda,75.04,t1
+Oman,74.94,t2
+Slovak Republic,74.89,t2
+French Polynesia,74.87,t2
+Montenegro,74.81,t2
+Vietnam,74.79,t2
+Aruba,74.75,t2
+Maldives,74.75,t2
+Ecuador,74.66,t2
+Barbados,74.64,t2
+China,74.54,t2
+Tunisia,74.52,t2
+"Macedonia, FYR",74.44,t2
+"Bahamas, The",74.26,t2
+Jamaica,74.23,t2
+Estonia,74.05,t2
+Malaysia,73.98,t2
+Sri Lanka,73.89,t2
+Kuwait,73.85,t2
+Hungary,73.76,t2
+St. Lucia,73.72,t2
+Algeria,73.66,t2
+Saudi Arabia,73.44,t2
+"Venezuela, RB",73.42,t2
+Turkey,73.31,t2
+Bulgaria,73.24,t2
+"Iran, Islamic Rep.",73.12,t2
+Thailand,73.09,t2
+Jordan,73.07,t2
+Armenia,73.07,t2
+Peru,73.06,t2
+Brazil,73.02,t2
+Romania,73.02,t2
+Mauritius,72.94,t2
+Nicaragua,72.85,t2
+Colombia,72.84,t2
+Morocco,72.73,t2
+Georgia,72.68,t2
+Lithuania,72.67,t2
+Latvia,72.48,t2
+Syrian Arab Republic,72.46,t2
+Dominican Republic,72.26,t2
+Samoa,72.26,t2
+West Bank and Gaza,72.12,t2
+Grenada,72.09,t2
+Honduras,72.08,t2
+Tonga,71.9,t2
+St. Vincent and the Grenadines,71.85,t2
+Paraguay,71.8,t2
+Caribbean small states,71.75,t2
+Cabo Verde,71.72,t2
+Libya,71.4,t2
+El Salvador,71.25,t2
+Guatemala,70.78,t2
+Belarus,70.49,t2
+"Egypt, Arab Rep.",70.02,t2
+Vanuatu,70.01,t3
+Azerbaijan,69.84,t3
+Suriname,69.65,t3
+Kosovo,69.51,t3
+Trinidad and Tobago,69.48,t3
+Ukraine,69.4,t3
+Belize,69.35,t3
+Uzbekistan,69.32,t3
+Bangladesh,69.18,t3
+Kyrgyz Republic,69.08,t3
+Moldova,69.08,t3
+"Korea, Dem. People’s Rep.",68.99,t3
+Fiji,68.92,t3
+Iraq,68.84,t3
+Tajikistan,68.65,t3
+"Micronesia, Fed. Sts.",68.31,t3
+Philippines,68.12,t3
+Kazakhstan,68.02,t3
+Russian Federation,67.98,t3
+Indonesia,67.76,t3
+Solomon Islands,67.36,t3
+Nepal,66.76,t3
+Mongolia,66.35,t3
+Bhutan,66.24,t3
+Turkmenistan,65.91,t3
+Guyana,65.8,t3
+India,65.74,t3
+Timor-Leste,65.38,t3
+Sao Tome and Principe,65.21,t3
+Kiribati,65.16,t3
+Bolivia,65.15,t3
+Cambodia,64.67,t3
+Pakistan,64.62,t3
+Myanmar,64.51,t3
+Papua New Guinea,63.98,t3
+"Yemen, Rep.",62.78,t3
+Senegal,62.62,t3
+Madagascar,62.44,t3
+Gabon,61.99,t3
+Sudan,61.65,t3
+Mauritania,61.54,t3
+Comoros,61.29,t3
+Eritrea,60.55,t3
+Haiti,60.48,t3
+Afghanistan,59.94,t3
+Ghana,59.93,t3
+Kenya,59.74,t3
+Djibouti,59.52,t3
+Fragile and conflict affected situations,59.37,t3
+Rwanda,59.25,t3
+Ethiopia,59.16,t3
+Tanzania,58.85,t3
+"Gambia, The",58.81,t3
+Benin,58.38,t3
+"Congo, Rep.",58,t3
+Namibia,57.55,t3
+Liberia,57.54,t3
+Heavily indebted poor countries (HIPC),57.38,t3
+Botswana,56.98,t3
+Togo,56.49,t3
+Burkina Faso,55.51,t3
+Angola,55.48,t3
+"Congo, Dem. Rep.",55.32,t3
+Guinea,55.31,t3
+Equatorial Guinea,55.26,t3
+Niger,55.23,t3
+Uganda,54.71,t3
+Guinea-Bissau,54.52,t3
+Malawi,54.42,t3
+Cameroon,54.26,t3
+Burundi,54.18,t3
+Mali,53.62,t3
+Zambia,53.61,t3
+Somalia,53.42,t3
+Mozambique,53.34,t3
+South Sudan,52.79,t3
+Zimbabwe,50.89,t4
+Swaziland,50.56,t4
+Nigeria,49.76,t4
+Chad,49.65,t4
+Lesotho,49.62,t4
+Cote d'Ivoire,49.52,t4
+Sierra Leone,46.03,t4
