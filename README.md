@@ -1,1 +1,0 @@
-https://sakuraxin.github.io/data-vis/
