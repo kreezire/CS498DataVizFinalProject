@@ -157,7 +157,7 @@ dataset = JSON.parse('[{"Country":"Albania","Data":[{"Name":"Agriculture","Value
 
     x0.domain(dataset.map(function(d) { return d.Country; }));
     x1.domain(options).rangeRoundBands([0, x0.rangeBand()]);
-    y.domain([0, d3.max(dataset, function(d) { return d3.max(d.Data, function(d) { return d.Value; }); })]);
+    y.domain([0, d3.max(dataset, function(d) { return d3.max(d.Data, function(d) { return d.Value*100; }); })]);
 
     svg.append("g")
         .attr("class", "x axis")
@@ -186,9 +186,9 @@ dataset = JSON.parse('[{"Country":"Albania","Data":[{"Name":"Agriculture","Value
         .attr("class","dbar")
         .attr("width", x1.rangeBand())
         .attr("x", function(d) { return x1(d.Name); })
-        .attr("y", function(d) { return y(d.Value); })
+        .attr("y", function(d) { return y(d.Value*100); })
         .attr("value", function(d){return d.Name;})
-        .attr("height", function(d) { return height - y(d.Value); })
+        .attr("height", function(d) { return height - y(d.Value*100); })
         .style("opacity", function(d) {if (d.isTotal){return 1} else {return 0.5} })
         .style("fill", function(d) { return color(d.Name); })
         .each(function(d){
@@ -217,7 +217,7 @@ dataset = JSON.parse('[{"Country":"Albania","Data":[{"Name":"Agriculture","Value
             l = l-1
             elementData = elements[l].__data__;
             var activeBar = window.activeBar = elements[l];
-            divTooltip.html((d.Country)+"<br>"+elementData.Name+"<br>"+elementData.Value);
+            divTooltip.html((d.Country)+"<br>"+elementData.Name+"<br>"+(elementData.Value*100)+"%");
             d3.select(activeBar).style('opacity', 1);
         });
     bar
