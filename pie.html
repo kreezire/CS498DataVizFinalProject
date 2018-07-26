@@ -35,8 +35,8 @@ rect.disabled {                                                 /* NEW */
 </style>
 <style>
 body {
-  width: 1050px;
-  height: 500px;
+  width: 500px;
+  height: 300px;
   position: relative;
 }
 </style>
@@ -46,15 +46,11 @@ body {
 <body>
     <div style="display: flex; width: 60%;height: 30%">
         <div>
-            <center style="font-size: 30;padding-top: 100;padding-left: 10">Mauritius</center>
-            <small style="padding-left: 100">Country with highest GDP in the SUB SAHARAN REGION</small>
+            <center style="font-size: 30;padding-top: 100;padding-left: 10">Ireland</center>
+            <small style="padding-left: 100">Country with least economic contribution ratio from agriculture.</small>
             <div style="margin:75px;"  id="chart"></div>
         </div>
-        <div>
-             <center style="font-size: 30;padding-top: 100;padding-left: 10">Sierra Leone</center>
-             <small style="padding-left: 100">Country with lowest GDP in the SUB SAHARAN REGION</small>
-            <div style="margin:75px;"  id="chart1"></div>
-        </div>    
+        \   
     </div> 
     <script>
     /*	Function: renderPieChart
@@ -65,8 +61,8 @@ body {
 	*	Contains transitions and hover effects, load the css file 'css/pieChart.css' at the top of html page where the pie chart has to be loaded
 	*/
 	function renderPieChart (dataset,dom_element_to_append_to, colorScheme){
-		var margin = {top:50,bottom:50,left:50,right:50};
-		var width = 500 - margin.left - margin.right,
+		var margin = {top:0,bottom:0,left:0,right:0};
+		var width = 300 - margin.left - margin.right,
 		height = width,
 		radius = Math.min(width, height) / 2;
 		var donutWidth = 75;
@@ -177,14 +173,14 @@ body {
 		.text(function(d) { return d; })
 	};
 </script>    
-<script>
-    var inputData = [{label:"Agriculture",value:5.9},{label:"Industry",value:29.8},{label:"Service",value:64.3}];
+<script>15.2,0.03,84.77
+    var inputData = [{label:"Arable",value:15.2},{label:"Crops",value:0.03},{label:"Other",value:84.77}];
      var inputData1 = [{label:"Agriculture",value:49},{label:"Industry",value:31},{label:"Service",value:21}];
     
     var colorScheme = ["#E57373","#BA68C8","#7986CB","#A1887F","#90A4AE","#AED581","#9575CD","#FF8A65","#4DB6AC","#FFF176","#64B5F6","#00E676"];
     var colorScheme1 = ["#A1887F","#90A4AE","#AED581","#9575CD","#FF8A65","#4DB6AC","#FFF176","#64B5F6","#00E676"];
      renderPieChart(inputData,"#chart",colorScheme);
-     renderPieChart(inputData1,"#chart1",colorScheme1);
+     //renderPieChart(inputData1,"#chart1",colorScheme1);
 </script>
 </body>
 </html>
